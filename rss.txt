@@ -1,4 +1,0 @@
-https://www.zhihu.com/rss,file:///home/arron/eclipse-workspace/Rss/ZhiHu.png,ZhiHu
-http://blog.sina.com.cn/rss/1286528122.xml,file:///home/arron/eclipse-workspace/Rss/Microsoft.png,Microsoft
-https://www.toodaylab.com/feed,file:///home/arron/eclipse-workspace/Rss/ToodayLab.png,ToodayLab
-https://cn.nytimes.com/rss.html,file:///home/arron/eclipse-workspace/Rss/NY-Times.png,NY-Times
