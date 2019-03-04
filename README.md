@@ -1,2 +1,6 @@
 # CUC_face2music
-Our AI project.
+
+## js Demo 
+### indroduction
+This is a simple web page for the face2music project.It contains camera and some graph processing and etc.
+
