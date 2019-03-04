@@ -1,0 +1,65 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.backgroundRed
+{
+	-fx-background-color:red;
+}
+.backgroundWhite
+{
+	-fx-background-color:#FFF;
+}
+.backgroundMain
+{
+	-fx-background-color:#03A9F4;
+}
+.backgroundGray2
+{
+	-fx-background-color:#E0E0E0;
+}
+.backgroundBlue
+{
+	-fx-background-color:blue;
+}
+.backgroundBlue2
+{
+	-fx-background-color:#96D3D4;
+}
+.text16
+{
+	-fx-font-size:16px;
+}
+.text14
+{
+	-fx-font-size:14px;
+}
+.text12
+{
+	-fx-font-size:12px;
+}
+.text18
+{
+	-fx-font-size:18px;
+}
+.text20
+{
+	-fx-font-size:20px;
+}
+.textBold
+{
+	-fx-font-weight:300;
+}
+.colorDDD
+{
+	-fx-color:#DDD;
+}
+.colorWhite
+{
+	-fx-color:#FFF;
+}
+
+
+.borderRound
+{
+	-fx-border-radius:100px ;
+}
+
