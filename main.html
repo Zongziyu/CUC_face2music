@@ -41,7 +41,7 @@
             <div class="line"></div>
 			<div class="title-2-board" style="padding-left:30px;height:30px;">
 				<div class="switch switch-inline  text-left title title-2" style="width:700px;">
-  					<input type="checkbox" id="cam-ctrl" onclick="openCam()">
+  					<input type="checkbox" id="cam-ctrl" />
   					<label>open</label>
 				</div>
 			</div>
@@ -59,10 +59,14 @@
 			<div class="title  title-1">Photo</div>
 		</div>
 		<div class="main-board">
-			<canvas id="photo_" height=400 width=800 style="display:block; margin:auto;">
+			<div class='face_box' id='faceBox'></div>
+			<canvas id="photo_" height=100 width=800 style="display:block; margin:auto;">
 			</canvas>
-			<div class="line"></div>
-			<div class="title-2-board"></div>
+			<div class="next">
+				<div class="next-arrow" onclick="main_show(4)"></div>
+				<div class="next-title">Go To Generation Music</div>
+				
+			</div>
 
 		</div>
 	</div>
@@ -111,9 +115,9 @@
 
 	<div class="board" style="display: none;">
 		<div class="title-1-board">
-			<div class="title-icon line-height50 icon icon-line-chart icon-2x">
+			<div class="title-icon line-height50 icon icon-music icon-2x">
 			</div>
-			<div class="title  title-1">Figures</div>
+			<div class="title  title-1">Music</div>
 		</div>
 		<div class="main-board">
 			<div class="expandable">
@@ -192,6 +196,25 @@
 <script type="text/javascript" src="./js/utils.js"></script>
 <script type="text/javascript" src="./js/music.js"></script>
 <script type="text/javascript">
-
+	var url="ws://47.106.35.151:8080/Text/websocket"
+	// var url="ws://localhost:8080/Text1.0/websocket"
+	var ws = new WebSocket(url);
+	ws.onopen=function()
+	{
+		console.log("ws connected!");
+	}
+	ws.onmessage = function(message){
+		if(message.data=="failed")
+		{
+			alert("Face recognition failed! Maybe it's to dark! Or you are out of internet!");
+		}
+		else if(message.data=="[]"){alert("Internet is slow, so I cannot get the data!")}
+		else {locateFace(message.data);}
+	}
+	ws.onclose=function()
+	{
+		console.log("ws closed!");
+		ws = new WebSocket(url);
+	}
 </script>
 </html>

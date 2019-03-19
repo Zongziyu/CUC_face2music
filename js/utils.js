@@ -15,7 +15,8 @@ Camera catching program (CCP)
 
 
 
-var video = document.getElementById('cam');	
+var video = document.getElementById('cam');
+var video_btn = document.getElementById("cam-ctrl");	
 var cameraStream = null; 
 var cameraFlag = false;  
 //get video stream
@@ -23,18 +24,22 @@ navigator.getMedia = navigator.getUserMedia ||
                      navagator.webkitGetUserMedia ||
                      navigator.mozGetUserMedia ||
                      navigator.msGetUserMedia;
-navigator.getUserMedia({video:true,audio: false }, onSuccess, function(e){});cameraFlag=true;
-function onSuccess(stream) {
+
+video_btn.onclick=function()
+{
+	if(!cameraFlag)
+	{navigator.getUserMedia({video:true,audio: false }, onSuccess, function(e){});cameraFlag=true;
+	function onSuccess(stream) {
 	    video.srcObject=stream;
 	    cameraStream = stream;
+	}cameraFlag=true;}
+	openCam();
 }
 function openCam()
 {
 	var cam_ctrl = document.getElementById("cam-ctrl");
 	if(cam_ctrl.checked)
 	{
-		if(!cameraFlag)
-	  	{}
 	  	video.play();
 	  	video.style.display="block";
 		//get right of camera & call function and recieve stream
@@ -51,8 +56,9 @@ function openCam()
 
 
 var photo_ = document.getElementById("photo_");
-
+var data_;
 var img = document.getElementById("img");
+
 function getPic()
 {
 	
@@ -68,15 +74,43 @@ function getPic()
 	{
 		photo_.height =video.videoHeight;
 		photo_.width = video.videoWidth;
-		photo_.getContext('2d').drawImage(video, 0, 0);
+		var ctx = photo_.getContext('2d');
+		ctx.drawImage(video, 0, 0);
         console.log(video.videoWidth);
         console.log(video.videoHeight);
         //把canvas图像转为img图片
         //img.src = photo_.toDataURL("image/png");
+        toL(ctx,photo_.width, photo_.height)
+        ws.send(480)
+        for(var i =0;i<photo_.height;i++)
+        {
+        	ws.send(data_[i])
+        }
+        var box = document.getElementById("faceBox");
+        box.style.top=(100+(photo_.height-100)/2)+"px";
         main_show(1);
 	}
 }
 
+function toL(ctx, width, height)
+{
+	var c=ctx.getImageData(0,0,width, height);
+	data_=new Array();
+	for(var i=0;i<height;i++)
+	{
+		var data_line="";
+		for(var j=0;j<width;j++)
+		{
+			var x=(i*4)*width+(j*4);
+            var r=c.data[x];
+            var g=c.data[x+1];
+            var b=c.data[x+2];
+            var gray=0.229*r+0.587*b+0.114*g;
+            data_line=data_line+String.fromCharCode(parseInt(gray));
+		}
+		data_[i]=data_line;
+	}
+}
 /*
 Camera catching program (CCP)
 
@@ -158,4 +192,45 @@ function expand(top)
 /*
 Expandable 
 *******End**********
+ */
+
+ /*
+ Face Box
+ ****Begin*****
+ */
+
+function locateFace(data)
+{
+	var box = document.getElementById("faceBox");
+	data=data.substring(2,data.length-2);
+	var data_=new Array();
+	console.log(data);
+	var num =0;
+	var last=0;
+	var len = data.length;
+	for(var i = 0; i<len;i++)
+	{
+		if(data[i]!=',')continue;
+		else 
+		{
+			data_[num]=parseInt(data.substring(last,i));
+			last=i+1;
+			num++;
+			console.log(data_[num-1]);
+		}
+	}
+	data_[num]=parseInt(data.substring(last,len));
+	console.log(data_[3]);
+	box.style.height=(data_[2]-data_[0])+"px";
+	box.style.top=(data_[2])+"px";
+	box.style.left=(data_[3]+(800-photo_.width)/2)+"px";
+	box.style.width=(data_[1]-data_[3])+"px";
+	box.style.marginTop="-"+box.style.height;
+	box.style.backgroundImage="url('./pic/Face_Found.svg')";
+
+}
+
+/*
+ Face Box
+ ****Begin*****
  */
