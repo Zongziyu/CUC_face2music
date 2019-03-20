@@ -3,7 +3,13 @@
 /*
 @author:Arron_liu
 @description: this is a simple js script for the web app , which is about face recognization and music producting.
-
+@parts:
+	Camera cathching program
+	Left (Board) Show
+	Left Board Generation
+	Expandable
+	Face Box
+	Connection & Processing
  */
 
 
@@ -137,13 +143,13 @@ function left_hide()
 	left.style.left="-250px";
 }
 /*
+Left Show
 *********End***
  */
 
 
 /*
-left generation
-
+Left Board Generation
 *******Start*******
  */
 var left_list = document.getElementsByClassName("board");
@@ -165,7 +171,7 @@ function main_show(num)
 }
 /*
 
-left generation
+Left Board Generation
 *********End************
  */
 
