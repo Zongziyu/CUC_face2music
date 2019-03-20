@@ -50,24 +50,58 @@
 				<button class="btn btn-circle center40" onclick="getPic()"><i class="icon icon-camera"></i></button>
 			</div>
 		</div>
+		<div class="main-board" id="server_status_board">
+			<div class="title-2-board sub-basic">
+				<div class="title title-2">
+				Server Connection Status</div>
+    	        <div id="server_status" class="title title-2 right blue">connecting</div>
+			</div>
+		</div>
+		<!-- Tips Expandable -->
+		<div class="main-board bg-red">
+			<div class="expandable">
+				<div class="title-2-board expand-top" expand=0 onclick="expand(this)">
+					<div class="title title-2">Tips</div>
+    	        	<div class="title title-2 right white">Important</div>
+				</div>
+				<div class="expand-board" param="130">
+					<p>You have to sure some conditions as follows:</p>
+					<p>A light enviroment</p>
+					<p>Unobstructed network</p>
+					<p>Face to your camera</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="main-board">
+			<div class="title-2-board sub-basic">
+				<div class="title title-2">Click to expand/fold the Tips board</div>
+    	       	<div class="title title-2 right red" style="font-size:30px;">☝️</div>
+    	   	</div>
+		</div>
 	</div>
 	
 	<div class="board" style="display: none;">
 		<div class="title-1-board">
 			<div class="title-icon line-height50 icon icon-smile icon-2x">
 			</div>
-			<div class="title  title-1">Photo</div>
+			<div class="title  title-1">Face Location</div>
 		</div>
 		<div class="main-board">
 			<div class='face_box' id='faceBox'></div>
 			<canvas id="photo_" height=100 width=800 style="display:block; margin:auto;">
 			</canvas>
-			<div class="next">
-				<div class="next-arrow" onclick="main_show(4)"></div>
-				<div class="next-title">Go To Generation Music</div>
-				
+		</div>
+		<div class="main-board" id="face_location_status_board">
+			<div class="title-2-board sub-basic">
+				<div class="title title-2">
+				Face Location Status</div>
+    	        <div id="face_location_status" class="title title-2 right blue">Stopped</div>
 			</div>
-
+		</div>
+		<div class="next">
+			<div class="next-arrow" onclick="main_show(4)"></div>
+			<div class="next-title">Go To Generation Music</div>		
 		</div>
 	</div>
 
@@ -174,6 +208,12 @@
 					<!---->
 				</div>
 			</div>
+			<div class="main-board">
+				<div class="title-2-board sub-basic">
+					<div class="title title-2">Click to expand/fold the music board</div>
+    	        	<div class="title title-2 right red" style="font-size:30px;">☝️</div>
+    	    	</div>
+			</div>
 		</div>
 	</div>
 
@@ -199,22 +239,17 @@
 	var url="ws://47.106.35.151:8080/Text/websocket"
 	// var url="ws://localhost:8080/Text1.0/websocket"
 	var ws = new WebSocket(url);
+	
 	ws.onopen=function()
 	{
-		console.log("ws connected!");
+		sucessedConnection();
 	}
 	ws.onmessage = function(message){
-		if(message.data=="failed")
-		{
-			alert("Face recognition failed! Maybe it's to dark! Or you are out of internet!");
-		}
-		else if(message.data=="[]"){alert("Internet is slow, so I cannot get the data!")}
-		else {locateFace(message.data);}
+		processMessage(message);
 	}
 	ws.onclose=function()
 	{
-		console.log("ws closed!");
-		ws = new WebSocket(url);
+		closedConnection();
 	}
 </script>
 </html>

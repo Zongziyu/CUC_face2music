@@ -89,6 +89,7 @@ function getPic()
         var box = document.getElementById("faceBox");
         box.style.top=(100+(photo_.height-100)/2)+"px";
         main_show(1);
+        face_location_status.innerHTML="Finding...";
 	}
 }
 
@@ -232,5 +233,50 @@ function locateFace(data)
 
 /*
  Face Box
- ****Begin*****
+ ****End*****
  */
+
+/*
+Connection & Processing
+****Begin****
+*/
+var server_status = document.getElementById("server_status");
+var face_location_status = document.getElementById("face_location_status");
+var server_status_board = document.getElementById("server_status_board");
+var face_location_status_board = document.getElementById("face_location_status_board");
+ function sucessedConnection()
+ {
+ 	server_status.innerHTML="connected";
+	server_status.setAttribute("class", "title title-2 right white");
+	server_status_board.setAttribute("class", "main-board bg-green");
+	console.log("ws connected!");
+ }
+ function closedConnection()
+ {
+ 	server_status.innerHTML="closed";
+	server_status.setAttribute("class", "title title-2 right white");
+	server_status_board.setAttribute("class", "main-board bg-red");
+	console.log("ws closed!");
+ }
+
+ function processMessage(message)
+ {
+ 	if(message.data=="failed")
+	{
+		face_location_status.innerHTML="Failed";
+		face_location_status.setAttribute("class", "title title-2 right red");
+		face_location_status_board.setAttribute("class", "main-board bg-red");
+		alert("Face recognition failed! Maybe it's to dark! Or you are out of internet!");
+	}
+	else if(message.data=="[]"){alert("Internet is slow, so I cannot get the data!")}
+	else {
+		locateFace(message.data);
+		face_location_status.innerHTML="Sucessed";
+		face_location_status.setAttribute("class", "title title-2 right white");
+		face_location_status_board.setAttribute("class", "main-board bg-green");
+	}
+ }
+/*
+Connection & Processing
+****End****
+*/
