@@ -8,6 +8,10 @@ p{
     padding: 5px;
     color:black;
 }
+p:hover
+{
+	background: #EEE;
+}
 .top
 {
 	height:50px;
@@ -132,6 +136,10 @@ p{
 .bg-green
 {
 	background-color:#1b998b;
+}
+.bg-pink
+{
+	background-color: #ea7494;
 }
 .line
 {
@@ -283,16 +291,17 @@ p{
 }
 .expand-top:hover
 {
-	border-bottom:2px solid rgba(0,0,0,0.2);
-	background:rgba(0,0,0,0.15);
+	background:rgba(255,255,255,0.25);
 }
 .expand-board
 {
-	background: rgba(0,0,0,0.2);
-    width: 800px;
+    width: 780px;
     height: 0px;
-    box-shadow: 0px 5px 10px -8px #000 inset;
+    box-shadow: 0px 0px 10px -5px #000;
     overflow: hidden;
+    background-color: white;
+    margin: 5px 10px;
+    border-radius: 5px;
 }
 .expandable
 {

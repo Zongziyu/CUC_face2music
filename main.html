@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8" />
 	<title>Smellet</title>
 	<link rel="stylesheet" type="text/css" href="./css/zui.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/utils.css">
@@ -153,7 +154,7 @@
 			</div>
 			<div class="title  title-1">Music</div>
 		</div>
-		<div class="main-board">
+		<div class="main-board bg-pink">
 			<div class="expandable">
 				<div class="title-2-board expand-top" expand=0 onclick="expand(this)">
 					<div class="title-icon icon icon-music"></div>
@@ -237,7 +238,7 @@
 <script type="text/javascript" src="./js/music.js"></script>
 <script type="text/javascript">
 	var url="ws://47.106.35.151:8080/Text/websocket"
-	// var url="ws://localhost:8080/Text1.0/websocket"
+	//var url="ws://localhost:8080/Text1.0/websocket"
 	var ws = new WebSocket(url);
 	
 	ws.onopen=function()

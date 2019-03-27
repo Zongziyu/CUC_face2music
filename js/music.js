@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	var audio = document.getElementById("audio");
 	audio.volume = 0.8;
-	audio.src='./0.mp3';
+	audio.src='./0.m4a';
 	
 	/*播放时间可视化 play_time controls*/
 	$.fn.musictime_show = function()
