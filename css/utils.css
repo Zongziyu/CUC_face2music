@@ -20,6 +20,16 @@ p:hover
 	text-indent: 50px;
 	background:#3367d6;
 }
+.icon
+{
+	background-size: 30px 30px;
+	background-repeat: no-repeat;
+	display: block;
+	height:100%;
+	width:100%;
+	background-image: url(../pic/user.png);
+	background-position: center;
+}
 #settings_btn
 {
 	height:50px;
@@ -47,7 +57,7 @@ p:hover
 {
 	position: relative;
 	top:0px;
-	left:10px;
+	left:0px;
 	display: block;
 	float: left;
 	height:100%;
@@ -67,7 +77,7 @@ p:hover
 	left:10px;
 	float:left;
 	height:40px;
-	width:30px;
+	width:40px;
 	line-height: 40px;
 	text-align:center;
 }
@@ -86,8 +96,8 @@ p:hover
 
 .sub-basic{
 	width:100%;
-	padding-left:30px;
-	padding-right:30px;
+/*	padding-left:30px;
+	padding-right:30px;*/
 	line-height: 50px
 }
 .sub-basic:hover
@@ -151,15 +161,19 @@ p:hover
 }
 
 
-.btn-
+.btn
 {
 	margin-left: 0;
     height: 50px;
-    background: rgba(0,0,0,0);
+    background: #DDD;
     border: 0px;
+    cursor:pointer;
     box-shadow: 0px 0px 0px 0px #000;
 }
-
+.btn:hover
+{
+	background:#AAA;
+}
 .btn-circle
 {
 	height:40px;
@@ -187,6 +201,8 @@ p:hover
 	float: right;
 	width:100px;	
 	text-align: right;
+	left:0px;
+	padding-right:10px;
 }
 
 .sub-top
@@ -283,8 +299,8 @@ p:hover
 .expand-top
 {
 	width:100%;
-	padding-left:30px;
-	padding-right:30px;
+/*	padding-left:30px;
+	padding-right:30px;*/
 	line-height: 50px;
 	cursor:pointer;
 
@@ -365,3 +381,90 @@ p:hover
 	box-shadow: 0px 2px 10px -2px #222;
 }
 
+.icon-2x
+{
+	background-size: 40px 40px;
+}
+
+.icon-camera
+{
+	background-image: url(../pic/user.png);
+}
+input[type=checkbox]{
+	/*visibility: hidden;*/
+}
+.switch-board
+{
+	height:40px;
+	width:100%;
+	line-height:40px;
+	text-indent: 10px;
+}
+.switch input[type=checkbox]
+{
+	height: 20px;
+    float: right;
+    width: 20px;
+    cursor: pointer;
+    position: relative;
+    top: 12px;
+    right: 50px;
+    opacity: 0;
+}
+.switch input[type=checkbox]:checked{
+	right: 30px;
+}
+.switch input[type=checkbox] +label::before{
+	transition: ease 0.5s;
+    display: block;
+    content:" ";
+    width: 40px;
+    height: 16px;
+    background-color:#EEE; 
+    border-radius: 40px;
+    box-shadow: 0px 0px 5px -2px #000;
+    border: 1px solid #fff;
+    float: right;
+    margin: 12px 10px;
+    line-height: 20px;
+}
+.switch input[type=checkbox]:checked +label::before{
+	background-color: #6999ff;
+}
+.switch input[type=checkbox]+label::after{
+	transition: ease 0.5s;
+    display: block;
+    text-align: center;
+    content: " ";
+    font-size: 16px;
+    color: white;
+    height: 20px;
+    width: 20px;
+    background: #3367d6;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px -2px #000;
+    border: 1px solid #fff;
+    float: right;
+    margin: 10px;
+    margin-right: -32px;
+    line-height: 20px;
+}
+.switch input[type=checkbox]:checked +label::after{
+	content: " ";
+    margin-right: -52px;
+}
+.message
+{
+	position: absolute;
+    top: calc((100% - 50px) / 2);
+    left: calc((100% - 300px)/2);
+    height: 40px;
+    width: 300px;
+    background: #1d1d1d;
+    box-shadow: 0px 2px 10px -5px #000;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    border: 1px solid #999;
+}

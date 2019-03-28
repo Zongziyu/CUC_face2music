@@ -65,15 +65,13 @@ var photo_ = document.getElementById("photo_");
 var data_;
 var img = document.getElementById("img");
 
+
 function getPic()
 {
 	
 	if(video.paused)
 	{
-		new $.zui.Messager('Please open the Camera.', {
-        icon: 'bell', // 定义消息图标
-        placement:'center'
-    }).show();
+		alert("Please open The Camera first!")
 		return;
 	}
 	else
@@ -285,4 +283,9 @@ var face_location_status_board = document.getElementById("face_location_status_b
 /*
 Connection & Processing
 ****End****
+*/
+
+/*
+switch btn
+*****Start*****
 */
