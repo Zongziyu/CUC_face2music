@@ -74,7 +74,7 @@ p:hover
 	display: block;
 	position: relative;
 	top:0px;
-	left:10px;
+	left:5px;
 	float:left;
 	height:40px;
 	width:40px;
@@ -187,6 +187,7 @@ p:hover
 }
 .line-height50
 {
+	height:50px;
 	line-height: 50px;
 }
 
@@ -383,12 +384,39 @@ p:hover
 
 .icon-2x
 {
-	background-size: 40px 40px;
+	background-size: 35px 35px;
 }
 
 .icon-camera
 {
-	background-image: url(../pic/user.png);
+	background-image: url(../pic/camera.png);
+}
+.icon-cogs
+{
+	background-image: url(../pic/cogs.png);
+}
+.icon-smile
+{
+	background-image: url(../pic/biaoqing.png);
+}
+.icon-stack
+{
+	background-image: url(../pic/stack.png);
+}
+.icon-line-chart
+{
+	background-image: url(../pic/line-chart.png);
+}
+.icon-music
+{
+	background-image: url(../pic/music.png);
+}
+.icon-click
+{
+	background-size: 40px 40px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url(../pic/click.png);
 }
 input[type=checkbox]{
 	/*visibility: hidden;*/
@@ -412,6 +440,7 @@ input[type=checkbox]{
     opacity: 0;
 }
 .switch input[type=checkbox]:checked{
+
 	right: 30px;
 }
 .switch input[type=checkbox] +label::before{
