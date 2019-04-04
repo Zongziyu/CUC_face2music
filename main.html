@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8" />
 	<title>Smellet</title>
-	<link rel="stylesheet" type="text/css" href="./css/zui.min.css">
-	<link rel="stylesheet" type="text/css" href="./css/utils.css">
-	<link rel="stylesheet" type="text/css" href="./css/music.css">
+	
+	<link rel="stylesheet" type="text/css" href="/static/css/utils.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/music.css">
 </head>
 <body style="min-width: 850px;padding-bottom:20px;" >
 <div class="top">
 
 	<div class="title-1-board sub-top">
 		<div id="settings_btn" onclick="left_show()">
-			<div class="icon icon-bars icon-2x" style="margin-left:15px;margin-top:10px;"></div>
+			<div class="title-icon icon icon-bars icon-2x"></div>
 		</div>
 		<div class="title  title-1 color-white">Smellet</div>
 	</div>
@@ -39,16 +40,45 @@
                 </div>
             </div>
             <div class="line"></div>
-			<div class="title-2-board" style="padding-left:30px;height:30px;">
-				<div class="switch switch-inline  text-left title title-2" style="width:700px;">
-  					<input type="checkbox" id="cam-ctrl" onclick="openCam()">
+			<div class="title-2-board">
+				<div class="switch-board switch">
+  					<input type="checkbox" id="cam-ctrl" />
   					<label>open</label>
 				</div>
 			</div>
 		
 			<div class="title-2-board">
-				<button class="btn btn-circle center40" onclick="getPic()"><i class="icon icon-camera"></i></button>
+				<button class="btn btn-circle center40" onclick="getPic()"><div class="icon icon-camera"></div></button>
 			</div>
+		</div>
+		<div class="main-board" id="server_status_board">
+			<div class="title-2-board sub-basic">
+				<div class="title title-2">
+				Server Connection Status</div>
+    	        <div id="server_status" class="title title-2 right blue">connecting</div>
+			</div>
+		</div>
+		<!-- Tips Expandable -->
+		<div class="main-board bg-red">
+			<div class="expandable">
+				<div class="title-2-board expand-top" expand=0 onclick="expand(this)">
+					<div class="title title-2">Tips</div>
+    	        	<div class="title title-2 right white">Important</div>
+				</div>
+				<div class="expand-board" param="130">
+					<p>You have to sure some conditions as follows:</p>
+					<p>A light enviroment</p>
+					<p>Unobstructed network</p>
+					<p>Face to your camera</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="main-board">
+			<div class="title-2-board sub-basic">
+				<div class="title title-2">Click to expand/fold the Tips board</div>
+    	       	<div class="title title-2 right red icon-click" style="font-size:30px;"></div>
+    	   	</div>
 		</div>
 	</div>
 	
@@ -56,14 +86,23 @@
 		<div class="title-1-board">
 			<div class="title-icon line-height50 icon icon-smile icon-2x">
 			</div>
-			<div class="title  title-1">Photo</div>
+			<div class="title  title-1">Face Location</div>
 		</div>
 		<div class="main-board">
-			<canvas id="photo_" height=400 width=800 style="display:block; margin:auto;">
+			<div class='face_box' id='faceBox'></div>
+			<canvas id="photo_" height=100 width=800 style="display:block; margin:auto;">
 			</canvas>
-			<div class="line"></div>
-			<div class="title-2-board"></div>
-
+		</div>
+		<div class="main-board" id="face_location_status_board">
+			<div class="title-2-board sub-basic">
+				<div class="title title-2">
+				Face Location Status</div>
+    	        <div id="face_location_status" class="title title-2 right blue">Stopped</div>
+			</div>
+		</div>
+		<div class="next">
+			<div class="next-arrow" onclick="main_show(4)"></div>
+			<div class="next-title">Go To Generation Music</div>		
 		</div>
 	</div>
 
@@ -111,11 +150,11 @@
 
 	<div class="board" style="display: none;">
 		<div class="title-1-board">
-			<div class="title-icon line-height50 icon icon-line-chart icon-2x">
+			<div class="title-icon line-height50 icon icon-music icon-2x">
 			</div>
-			<div class="title  title-1">Figures</div>
+			<div class="title  title-1">Music</div>
 		</div>
-		<div class="main-board">
+		<div class="main-board bg-pink">
 			<div class="expandable">
 				<div class="title-2-board expand-top" expand=0 onclick="expand(this)">
 					<div class="title-icon icon icon-music"></div>
@@ -170,6 +209,12 @@
 					<!---->
 				</div>
 			</div>
+			<div class="main-board">
+				<div class="title-2-board sub-basic">
+					<div class="title title-2">Click to expand/fold the music board</div>
+    	        	<div class="title title-2 right red icon-click" style="font-size:30px;"></div>
+    	    	</div>
+			</div>
 		</div>
 	</div>
 
@@ -187,11 +232,9 @@
 
 	<!-- LEFT MENU Ending-->
 </body>
-<script type="text/javascript" src="./js/jquery.js"></script>
-<script type="text/javascript" src="./js/zui.js"></script>
-<script type="text/javascript" src="./js/utils.js"></script>
-<script type="text/javascript" src="./js/music.js"></script>
-<script type="text/javascript">
-
-</script>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/zui.js"></script>
+<script type="text/javascript" src="/static/js/utils.js"></script>
+<script type="text/javascript" src="/static/js/music.js"></script>
+<script type="text/javascript" src="/static/js/canvas.js"></script>
 </html>

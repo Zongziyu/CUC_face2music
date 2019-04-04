@@ -75,7 +75,7 @@ p
 	border: 0px solid #000;
 	border-right:1px none;
 	box-sizing: border-box;
-	background-image:url("../pic/input.png");
+	background-image:url("/static/pic/input.png");
 	background-size:90%;
 	background-repeat:no-repeat;
 	background-position:center;
@@ -102,7 +102,7 @@ p
 {
 	height:30px;
 	width:30px;
-	background:url("../pic/enter.png");
+	background:url("/static/pic/enter.png");
 	background-color:rgb(255,255,255,0.2);
 	background-size:cover;
 	border: 0px solid #000;

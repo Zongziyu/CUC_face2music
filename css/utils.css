@@ -1,4 +1,17 @@
 *{margin:0px;padding:0px;transition:ease 0.5s;}
+body{
+}
+p{
+	margin: 5px 10px;
+    line-height: 15px;
+    background: white;
+    padding: 5px;
+    color:black;
+}
+p:hover
+{
+	background: #EEE;
+}
 .top
 {
 	height:50px;
@@ -6,6 +19,16 @@
 	box-shadow: 2px 0px 10px -2px #222;
 	text-indent: 50px;
 	background:#3367d6;
+}
+.icon
+{
+	background-size: 30px 30px;
+	background-repeat: no-repeat;
+	display: block;
+	height:100%;
+	width:100%;
+	background-image: url(/static/pic/user.png);
+	background-position: center;
 }
 #settings_btn
 {
@@ -15,7 +38,7 @@
 }
 .main-board{
 	background:#fff;
-	box-shadow: 0px 0px 10px -2px #222;
+	box-shadow: 0px 2px 10px -6px #222;
 	width:800px;
 	border-radius:5px;
 	margin-top:5px;
@@ -34,11 +57,11 @@
 {
 	position: relative;
 	top:0px;
-	left:10px;
+	left:0px;
 	display: block;
 	float: left;
 	height:100%;
-	width:100px;
+	width:200px;
 	
 	text-align: left;
 	color:#000;
@@ -51,17 +74,17 @@
 	display: block;
 	position: relative;
 	top:0px;
-	left:10px;
+	left:5px;
 	float:left;
 	height:40px;
-	width:30px;
+	width:40px;
 	line-height: 40px;
 	text-align:center;
 }
 .title-1-board
 {
 	height:50px;
-	width:200px;
+	width:400px;
 	margin-left:calc((100% - 800px)/2);
 }
 
@@ -73,13 +96,13 @@
 
 .sub-basic{
 	width:100%;
-	padding-left:30px;
-	padding-right:30px;
+/*	padding-left:30px;
+	padding-right:30px;*/
 	line-height: 50px
 }
 .sub-basic:hover
 {
-	background:#DDD;
+	background:rgba(0,0,0,0.15);
 }
 .title-2-board
 {
@@ -109,6 +132,25 @@
 {
     color:green;
 }
+.blue
+{
+	color:#3367d6;
+}
+.white{
+	color:white;
+}
+.bg-red
+{
+	background-color:#e84855;
+}
+.bg-green
+{
+	background-color:#1b998b;
+}
+.bg-pink
+{
+	background-color: #ea7494;
+}
 .line
 {
 	
@@ -119,15 +161,19 @@
 }
 
 
-.btn-
+.btn
 {
 	margin-left: 0;
     height: 50px;
-    background: rgba(0,0,0,0);
+    background: #DDD;
     border: 0px;
+    cursor:pointer;
     box-shadow: 0px 0px 0px 0px #000;
 }
-
+.btn:hover
+{
+	background:#AAA;
+}
 .btn-circle
 {
 	height:40px;
@@ -141,6 +187,7 @@
 }
 .line-height50
 {
+	height:50px;
 	line-height: 50px;
 }
 
@@ -155,6 +202,8 @@
 	float: right;
 	width:100px;	
 	text-align: right;
+	left:0px;
+	padding-right:10px;
 }
 
 .sub-top
@@ -182,7 +231,7 @@
 	height:100%;
 	width:250px;
 	background:white;
-	box-shadow:0px 0px 10px -2px #000;
+	box-shadow:0px 2px 10px -6px #000;
 	z-index:3;
 }
 
@@ -203,6 +252,10 @@
 	width:250px;
 	background:white;
 	margin-top:50px;
+	background-image:url(/static/pic/left_bg.png);
+	background-position:bottom;
+	background-size:400px;
+	background-repeat: no-repeat;
 }
 
 .left-list-node
@@ -247,27 +300,200 @@
 .expand-top
 {
 	width:100%;
-	padding-left:30px;
-	padding-right:30px;
+/*	padding-left:30px;
+	padding-right:30px;*/
 	line-height: 50px;
 	cursor:pointer;
 
 }
 .expand-top:hover
 {
-	border-bottom:2px solid rgba(0,0,0,0.2);
-	background:#DDD;
+	background:rgba(255,255,255,0.25);
 }
 .expand-board
 {
-	background: rgba(0,0,0,0.2);
-    width: 800px;
+    width: 780px;
     height: 0px;
-    box-shadow: 0px 5px 10px -8px inset;
+    box-shadow: 0px 0px 10px -5px #000;
     overflow: hidden;
+    background-color: white;
+    margin: 5px 10px;
+    border-radius: 5px;
 }
 .expandable
 {
 	height:100%;
 	width:800px;
+}
+
+.face_box
+{
+	height: 100px;
+    width: 100px;
+    background: rgba(255,255,255,0.25);
+    position: relative;
+    top: 100px;
+    left: 350px;
+    margin-top: -100px;
+    box-shadow: 0px 2px 10px -6px #000;
+    border-radius: 10px;
+    background-image: url(/static/pic/Face_ID.svg);
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.next
+{
+	height:40px;
+	margin-top:40px;
+	float:right;
+	margin-right:calc((100% - 800px)/2);
+	margin-bottom: 20px;
+}
+.next-title
+{
+	height:40px;
+	background:white;
+	box-shadow: 0px 2px 10px -6px #222;
+	border-radius:5px;
+	margin-right:10px;
+	float:right;
+	line-height: 40px;
+	font-size:14px;
+	padding:0px 10px;
+}
+.next-arrow
+{
+	height:40px;
+	width:40px;
+	border-radius:20px;
+	background:#3367d6;
+	background-image:url("/static/pic/enter.png");
+	background-size:25px;
+	background-position: center;
+	background-repeat: no-repeat;
+	box-shadow: 0px 2px 10px -6px #222;
+	float:right;
+	cursor:pointer;
+}
+.next-arrow:hover
+{
+	box-shadow: 0px 2px 10px -2px #222;
+}
+
+.icon-2x
+{
+	background-size: 35px 35px;
+}
+
+.icon-camera
+{
+	background-image: url(/static/pic/camera.png);
+}
+.icon-cogs
+{
+	background-image: url(/static/pic/cogs.png);
+}
+.icon-smile
+{
+	background-image: url(/static/pic/biaoqing.png);
+}
+.icon-stack
+{
+	background-image: url(/static/pic/stack.png);
+}
+.icon-line-chart
+{
+	background-image: url(/static/pic/line-chart.png);
+}
+.icon-music
+{
+	background-image: url(/static/pic/music.png);
+}
+.icon-click
+{
+	background-size: 40px 40px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url(/static/pic/click.png);
+}
+input[type=checkbox]{
+	/*visibility: hidden;*/
+}
+.switch-board
+{
+	height:40px;
+	width:100%;
+	line-height:40px;
+	text-indent: 10px;
+}
+.switch input[type=checkbox]
+{
+	height: 20px;
+    float: right;
+    width: 20px;
+    cursor: pointer;
+    position: relative;
+    top: 12px;
+    right: 50px;
+    opacity: 0;
+}
+.switch input[type=checkbox]:checked{
+
+	right: 30px;
+}
+.switch input[type=checkbox] +label::before{
+	transition: ease 0.5s;
+    display: block;
+    content:" ";
+    width: 40px;
+    height: 16px;
+    background-color:#EEE; 
+    border-radius: 40px;
+    box-shadow: 0px 0px 5px -2px #000;
+    border: 1px solid #fff;
+    float: right;
+    margin: 12px 10px;
+    line-height: 20px;
+}
+.switch input[type=checkbox]:checked +label::before{
+	background-color: #6999ff;
+}
+.switch input[type=checkbox]+label::after{
+	transition: ease 0.5s;
+    display: block;
+    text-align: center;
+    content: " ";
+    font-size: 16px;
+    color: white;
+    height: 20px;
+    width: 20px;
+    background: #3367d6;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px -2px #000;
+    border: 1px solid #fff;
+    float: right;
+    margin: 10px;
+    margin-right: -32px;
+    line-height: 20px;
+}
+.switch input[type=checkbox]:checked +label::after{
+	content: " ";
+    margin-right: -52px;
+}
+.message
+{
+	position: absolute;
+    top: calc((100% - 50px) / 2);
+    left: calc((100% - 300px)/2);
+    height: 40px;
+    width: 300px;
+    background: #1d1d1d;
+    box-shadow: 0px 2px 10px -5px #000;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    border: 1px solid #999;
 }

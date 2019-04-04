@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	var audio = document.getElementById("audio");
 	audio.volume = 0.8;
-	audio.src='./0.mp3';
+	audio.src='/static/0.m4a';
 	
 	/*播放时间可视化 play_time controls*/
 	$.fn.musictime_show = function()
@@ -27,13 +27,13 @@ $(document).ready(function(){
 	/*播放暂停　play and pause controls */
 	$.fn.playmusic =function (){
 		audio.play();
-		$(this).children("div").css("background-image","url('./pic/music_controls/pause.png')");
+		$(this).children("div").css("background-image","url('/static/pic/music_controls/pause.png')");
 		$(this).attr("title","play");
 		$(".play_pause").musictime_show();
 	}
 	$.fn.pausemusic =function (){
 		audio.pause();
-		$(this).children("div").css("background-image","url('./pic/music_controls/play.png')");
+		$(this).children("div").css("background-image","url('/static/pic/music_controls/play.png')");
 		$(this).attr("title","pause");	
 	}
 	
@@ -107,15 +107,15 @@ $(document).ready(function(){
 			that.css("height", bar_height+"px");
 			if( bar_height == 100 )
 			{
-				$(".volume_icon").css("background-image","url('./pic/music_controls/volume3.png')");
+				$(".volume_icon").css("background-image","url('/static/pic/music_controls/volume3.png')");
 			}
 			else if( bar_height == 0 )
 			{
-				$(".volume_icon").css("background-image","url('./pic/music_controls/volume2.png')");
+				$(".volume_icon").css("background-image","url('/static/pic/music_controls/volume2.png')");
 			}
 			else
 			{
-				$(".volume_icon").css("background-image","url('./pic/music_controls/volume1.png')");	
+				$(".volume_icon").css("background-image","url('/static/pic/music_controls/volume1.png')");
 			}
 			$(document).mouseup(function(){
 				$(this).unbind();
