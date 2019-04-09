@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="/static/css/utils.css">
+<link rel="stylesheet" type="text/css" href="/static/css/login.css">
+<link rel="stylesheet" type="text/css" href="/static/css/eyes_move.css">
+<meta charset="US-ASCII">
+<title>Smellet</title>
+
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+
+
+</head>
+<body>
+	<div class="top">
+
+		<div class="title-1-board sub-top">
+			<div class="title  title-1 color-white">Dorey</div>
+		</div>
+
+	</div>
+
+	<div class="board" style="width:100%;left:0px;">
+		<div class="title-1-board">
+			<div class="title-icon line-height50 icon icon-user icon-2x">
+			</div>
+			<div class="title  title-1">Login</div>
+		</div>
+		<div class="main-board" style="box-shadow:0px 0px 0;">
+			<!--<img src="./pic/welcome.png" style="float:left;position:relative;top:-155px;left:-100px;">-->
+			<div id="login_board">
+				<div id="board_head">
+					<img src="/static/pic/user.png" height="40px" width="40px">
+				</div>
+				<div id="board_body">
+					<div id="body_img" style="position: relative;box-shadow: 0px 0px 0;">
+						<div class="border" id="left_eye">
+							<div class="eye_1">
+								<div class="eye_2"></div>
+							</div>
+						</div>
+						<div class="border" id="right_eye">
+							<div class="eye_1">
+								<div class="eye_2"></div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="bottom_board">
+						<div id="input_board">
+							<div id="input_icon"></div>
+							<input id="password_input" type="password" name="pwd" />
+							<div id="check_button" onclick="to()"> </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/static/js/eyes_move.js"></script>
+	<script>
+	function to()
+	{
+		window.location.href = "/main";
+	}
+	</script>
+</body>
+</html>

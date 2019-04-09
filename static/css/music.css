@@ -1,0 +1,244 @@
+#music{
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	margin:auto;
+	padding-top:20px;
+	
+}
+#music *
+{
+	transition:0s;
+}
+#music #music_img{
+	height:200px;
+	width:200px;
+	border-radius:100px;
+	box-shadow:0px 0px 10px -2px #000;
+	margin:auto;
+}
+#music p{
+	color:#111;
+	line-height:70px;
+	text-align:center;
+	font-size:15px;
+}
+
+#music #music_control{
+
+	height:32px;
+	width:100%;
+	margin-top:30px;
+}
+/*********Music文件流载入设计***********/
+#wrapper
+{
+	text-align:center;
+	margin-top:25px;
+}
+#wrapper:hover
+{
+	opacity:1;
+}
+#uploadedFile
+{
+	margin-top:10px;
+}
+
+
+/********Music控件css设计*********/
+
+.control_board
+{
+	background:#EEE;
+	border-radius:10px;
+	background-size:100%;
+	height:16px;
+	padding:10px 10px;
+	width:500px;
+	margin:auto;
+}
+.play_control
+{
+	height:100%;
+	width:30%;
+	float:left;
+}
+.change_speed
+{
+	height:100%;
+	width:33.3%;
+	float:left;
+	cursor:pointer;
+}
+.change_speed div
+{
+	height:16px;
+	width:16px;
+	margin:auto;
+	background-image:url("/static/pic/music_controls/change_speed.png");
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.play_pause
+{
+	height:100%;
+	width:33.4%;
+	float:left;
+	cursor:pointer;
+}
+.play_pause div
+{
+	height:16px;
+	width:16px;
+	margin:auto;
+	background-image:url("/static/pic/music_controls/play.png");
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center;	
+}
+
+/**/
+
+.process_board
+{
+	height:100%;
+	width:60%;
+	float:left;
+}
+.bar
+{
+	height:8px;
+	margin-top: 4px;
+	width:108px;
+	border-radius:20px;
+	background-color: rgba(0,0,0,0.8);
+	float:left;
+}
+.bar .current_bar
+{
+	height:8px;
+	width:0px;
+	max-width:100px !important;
+	float:left;
+	border-radius:20px;
+	margin-right:-8px;
+	background:#3367d6;
+}
+.bar .time_change
+{
+	float:left;
+	border-top:8px solid #fff;
+	border-bottom:8px solid #fff;
+	border-left:8px solid #fff;
+	border-right:8px solid #fff;
+	border-radius:8px;
+	margin-top:-4px;
+	cursor:pointer;
+	box-shadow: 0px 0px 10px -3px #3367d6;
+}
+
+.show_playTime
+{
+	float:left;
+	height:100%;
+	width:40%;
+	text-indent:10px;
+}
+.show_playTime span
+{
+	line-height:15px;
+	text-align:right;
+	display: block;
+}
+.now_playTime
+{
+	color:#000;
+}
+.sum_playTime
+{
+	color:#aaa;
+}
+/**/
+
+.volume_board
+{
+	width:10%;
+	height:100%;
+	float:left;
+}
+
+.volume_icon
+{
+	height:16px;
+	width:16px;
+	margin:auto;
+	background-image:url("/static/pic/music_controls/volume1.png");
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center;	
+	cursor:pointer;
+}
+
+.volume_bar
+{
+	position:relative;
+	padding: 3px 5px; 
+	top:-65px;
+	left:70px;
+	height:108px;
+	width:8px;
+	box-shadow: 0px 0px 1px #000;
+	background:rgba(255,255,255,0.8);
+}
+
+.volume_bar .current_volume_bar 
+{
+	height:102px;
+	width:8px;
+	background:#3367d6;
+	border-radius:20px;
+}
+.hover_volume_bar
+{
+	height:20px;
+	width:100%;
+	border-radius:20px;
+	background:rgba(0,0,0,0.8);
+}
+.volume_change
+{
+	float:left;
+	border-top:8px solid #fff;
+	border-bottom:8px solid #fff;
+	border-left:8px solid #fff;
+	border-right:8px solid #fff;
+	border-radius:8px;
+	margin-left:-4px;
+	margin-top:-4px;
+	cursor:pointer;
+	box-shadow: 0px 0px 10px -3px #005c58;
+}
+
+/*****************/
+
+#music::-webkit-scrollbar    /*滚动条整体部分*/
+{  
+    width: 5px;  
+    height:10px;     
+   	background-color:black;
+}  
+#music::-webkit-scrollbar-track       /*scroll轨道背景*/
+{  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  
+    border-radius: 10px; 
+    background-color:#e3e2e2;    
+    
+}
+#music::-webkit-scrollbar-thumb  /*滚动条中能上下移动的小块*/
+{  
+    border-radius: 10px;  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+   	background-color:#222;
+} 

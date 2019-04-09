@@ -1,0 +1,32 @@
+
+.border
+{
+	height:50px;
+	width:40px;
+	position:absolute;
+	top:0;
+	left:0;
+}
+.eye_1
+{
+	height:30px;
+	width:30px;
+	background:black;
+	position: absolute;
+	top:0px;
+	left:0px;
+	border-radius:30px;
+}
+.eye_2{
+	height:12px;
+	width:12px;
+	background:#EEE;
+	position: absolute;
+	top:0px;
+	left:0px;
+	border-radius:12px;
+}
+#right_eye
+{
+	margin-left:60px;
+}

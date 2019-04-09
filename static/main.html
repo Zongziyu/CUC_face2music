@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Smellet</title>
+	
+	<link rel="stylesheet" type="text/css" href="/static/css/utils.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/music.css">
+</head>
+<body style="min-width: 850px;padding-bottom:20px;" >
+<div class="top">
+
+	<div class="title-1-board sub-top" style="margin-left:0px;">
+		<div class="title-icon icon icon-bars icon-2x"></div>
+		<div class="title  title-1 color-white">Dorey</div>
+	</div>
+
+</div>
+
+
+	<div class="board">
+		<div class="title-1-board">
+			<div class="title-icon line-height50 icon icon-camera icon-2x">
+			</div>
+			<div class="title  title-1">Camera</div>
+		</div>
+		<div class="main-board">		
+            <div class="expandable">
+                <div class="title-2-board expand-top" expand=0  >
+				    <div class="title-icon icon icon-cogs"></div>
+				    <div class="title title-2">camera</div>
+                </div>
+                
+                <div class="expand-board"  param=400>
+                     <div class="main-camera sub-basic">
+				        <video id="cam" style="height:100%;width:100%;"></video>
+			         </div>
+                </div>
+            </div>
+            <div class="line"></div>
+			<div class="title-2-board">
+				<div class="switch-board switch">
+  					<input type="checkbox" id="cam-ctrl" />
+  					<label>open</label>
+				</div>
+			</div>
+		
+			<div class="title-2-board">
+				<button class="btn btn-circle center40" onclick="getPic()"><div class="icon icon-camera"></div></button>
+			</div>
+		</div>
+		<!-- Tips Expandable -->
+		<div class="main-board bg-red">
+			<div class="expandable">
+				<div class="title-2-board expand-top" expand=0 onclick="expand(this)">
+					<div class="title title-2">Tips</div>
+    	        	<div class="title title-2 right white">Important</div>
+				</div>
+				<div class="expand-board" param="130">
+					<p>You have to sure some conditions as follows:</p>
+					<p>A light enviroment</p>
+					<p>Unobstructed network</p>
+					<p>Face to your camera</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="main-board">
+			<div class="title-2-board sub-basic">
+				<div class="title title-2">Click to expand/fold the Tips board</div>
+    	       	<div class="title title-2 right red icon-click" style="font-size:30px;"></div>
+    	   	</div>
+		</div>
+	</div>
+	
+	<div class="board" style="display: none;">
+		<div class="title-1-board">
+			<div class="title-icon line-height50 icon icon-smile icon-2x">
+			</div>
+			<div class="title  title-1">Face Location</div>
+		</div>
+		<div class="main-board">
+			<div class='face_box' id='faceBox'></div>
+			<canvas id="photo_" height=100 width=800 style="display:block; margin:auto;">
+			</canvas>
+		</div>
+		<div class="main-board" id="face_location_status_board">
+			<div class="title-2-board sub-basic">
+				<div class="title title-2">
+				Face Location Status</div>
+    	        <div id="face_location_status" class="title title-2 right blue">Stopped</div>
+			</div>
+		</div>
+		<div class="next">
+			<div class="next-arrow" onclick="main_show(4)"></div>
+			<div class="next-title">Go To Generation Music</div>		
+		</div>
+	</div>
+
+	<div class="board" style="display: none;">
+		<div class="title-1-board">
+			<div class="title-icon line-height50 icon icon-stack icon-2x">
+			</div>
+			<div class="title  title-1">Results</div>
+		</div>
+		<div class="main-board">
+			<div class="title-2-board sub-basic">
+				<div class="title-icon icon icon-cogs"></div>
+				<div class="title title-2">camera</div>
+    	        <div class="title title-2 right green">opened</div>
+			</div>
+    	    <div class="line"></div>
+    	    <div class="title-2-board sub-basic">
+    	        <div class="title-icon icon icon-smile"></div>
+        	    <div class="title title-2">emotion</div>
+        	</div>
+		</div>
+	</div>
+	
+	<div class="board" style="display: none;">
+		<div class="title-1-board">
+			<div class="title-icon line-height50 icon icon-line-chart icon-2x">
+			</div>
+			<div class="title  title-1">Figures</div>
+		</div>
+		<div class="main-board">
+			<div class="title-2-board sub-basic">
+				<div class="title-icon icon icon-cogs"></div>
+				<div class="title title-2">camera</div>
+    	        <div class="title title-2 right green">opened</div>
+			</div>
+    	    <div class="line"></div>
+    	    <div class="title-2-board sub-basic">
+    	        <div class="title-icon icon icon-smile"></div>
+        	    <div class="title title-2">emotion</div>
+        	</div>
+		</div>
+	</div>
+	
+	<!--DEMO Staring-->
+
+	<div class="board" style="display: none;">
+		<div class="title-1-board">
+			<div class="title-icon line-height50 icon icon-music icon-2x">
+			</div>
+			<div class="title  title-1">Music</div>
+		</div>
+		<div class="main-board bg-pink">
+			<div class="expandable">
+				<div class="title-2-board expand-top" expand=0 onclick="expand(this)">
+					<div class="title-icon icon icon-music"></div>
+					<div class="title title-2">Music</div>
+    	        	<div class="title title-2 right green">Generated</div>
+				</div>
+				<div class="expand-board" param="130">
+					<!--Music Board-->
+					<!--<div id="visualizer_wrapper" style="z-index:-1;">
+                		<canvas id='music_visulize' width=800 height=130></canvas>
+            		</div>-->
+					<div id="music" style="position: relative;z-index: 2;margin-top:0px;">
+						<audio id="audio" loop></audio>
+						<!--<canvas id="canvas" height="250" width="550"></canvas>-->
+						<div id="music_control">
+							<div class="control_board">
+								<div class="play_control">
+									<div class="change_speed" param="back">
+										<div></div>
+									</div>
+									<div class="play_pause" title="pause">
+										<div></div>
+									</div>
+									<div class="change_speed" param="forward">
+										<div style="transform: rotate(180deg);-moz-transform: rotate(180deg);-webkit-transform: rotate(180deg);-o-transform: rotate(180deg);"></div>
+									</div>
+								</div>
+								<div class="process_board">
+									<div class="bar">
+										<div class="current_bar"></div>
+										<span class="time_change" title="current time"></span>
+									</div>
+									<div class="show_playTime">
+										<span class="now_playTime">00:00</span>
+										<!--<span class="sum_playTime">00:00</span>-->
+									</div>
+								</div>
+								<div class="volume_board">
+									<div class="volume_icon"></div>
+									<div class="volume_bar" style="display:none;">
+										<div class="current_volume_bar">
+											<div class="hover_volume_bar"></div>
+											<span class="volume_change" title="current volume"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					<br/>
+				</div>
+			</div>
+					<!---->
+				</div>
+			</div>
+			<div class="main-board">
+				<div class="title-2-board sub-basic">
+					<div class="title title-2">Click to expand/fold the music board</div>
+    	        	<div class="title title-2 right red icon-click" style="font-size:30px;"></div>
+    	    	</div>
+			</div>
+		</div>
+	</div>
+
+	<!--DEMO Staring-->
+
+	<!-- LEFT MENU  Starting-->
+	<div id="left_bar" style="">
+			<div class="left-top title title-1">Menu</div>
+			<div id="left_list_box">
+			</div>
+	</div>
+
+	<!-- LEFT MENU Ending-->
+</body>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/utils.js"></script>
+<script type="text/javascript" src="/static/js/music.js"></script>
+</html>
