@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo</title>
+	<link rel="stylesheet" type="text/css" href="./css/utils.css">
+</head>
+<body>
+	<div class="top">
+		<div class="title-1-board sub-top">
+			<div class="title-icon icon icon-bars icon-2x"></div>
+			<div class="title title-1 white">this is a Demo</div>
+		</div>
+	</div>
+
+	<div class="board">
+		<div class="title-1-board sub-basic">
+			<div class="title-icon icon icon-smile icon-2x"></div>
+			<div class="title title-1">Smile</div>
+		</div>
+
+		<div class="main-board bg-pink">
+			<div class="title-2-board sub-basic">
+				<div class="title-icon icon icon-smile"></div>
+				<div class="title title-2">Smile</div>
+			</div>
+		</div>
+
+		<div class="main-board bg-green">
+			<div class="expandable">
+				<div class="title-2-board expand-top" expand=0 onclick="expand(this)"></div>
+
+				<div class="expand-board" param=200></div>
+			</div>
+		</div>
+
+		<div class="next">
+			<div class="next-arrow"></div>
+			<div class="next-title">SMILE</div>
+		</div>
+	</div>
+
+	<div id="left_bar">
+		<div class="left-top title title-1">MENU</div>
+		<div id="left_list_box"></div>
+	</div>
+
+
+	<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript" src="./js/basic.js"></script>
+	<script type="text/javascript" src="./js/utils.js"></script>
+</body>
+</html>

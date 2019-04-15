@@ -18,8 +18,8 @@ Camera catching program (CCP)
 
 *******Starting **********
  */
-
-
+var emotion_info_board;
+var flag_play = false;
 
 var video = document.getElementById('cam');
 var video_btn = document.getElementById("cam-ctrl");	
@@ -57,7 +57,7 @@ function openCam()
 		video.style.display="none";
 	}
     
-    expand(cam_ctrl.parentElement.parentElement.previousElementSibling.previousElementSibling.firstElementChild);
+    expand(document.getElementById("video_"));
 }
 
 
@@ -124,61 +124,8 @@ Camera catching program (CCP)
 *******End **********
  */
 
-/*
-Left Board Generation
-*******Start*******
- */
-var left_list = document.getElementsByClassName("board");
-var left_length = left_list.length;
-var left_list_box = document.getElementById("left_list_box");
-for(var i = 0; i < left_length; i++)
-{
-	left_list_box.innerHTML += "<div class='left-list-node' onclick='main_show("+i+")'><div class='"+left_list[i].childNodes[1].childNodes[1].getAttribute("class")+"'></div><div class='title left-list-node-title'>"+left_list[i].childNodes[1].childNodes[3].innerHTML+"</div></div>"; 
-}
 
 
-var default_num = 0;
-var left_nodes = document.getElementsByClassName("left-list-node");
-left_nodes[default_num].style.backgroundColor="#DDD";
-function main_show(num)
-{
-	left_list[default_num].style.display="none";
-	left_list[num].style.display = "block";
-	left_nodes[default_num].style.backgroundColor="white";
-	left_nodes[num].style.backgroundColor="#DDD";
-	default_num = num;
-}
-/*
-
-Left Board Generation
-*********End************
- */
-
-
-/*
-Expandable 
-*******Starting**********
- */
-function expand(top)
-{
-	var next = top.nextElementSibling;
-	if(! next.getAttribute("class")=="expand-board") return;
-	if(top.getAttribute("expand")==0)
-	{
-		next.style.height = next.getAttribute("param")+"px";
-		top.setAttribute("expand",1);
-	}
-	else
-	{
-		next.style.height = "0px";
-		top.setAttribute("expand", 0);
-	}
-}
-
-/*
-Expandable 
-*******End**********
- */
 
  /*
  Face Box
@@ -245,12 +192,22 @@ function send(data__)
     })
 }
 
+function play_audio()
+{
+	if (!flag_play) {alert("you have to take a pic first!");return ;}
+	main_show(4);
+	var audio = document.getElementById("audio");
+	audio.src = "gen_audio";
+	$(".play_pause").playmusic();
+	expand(document.getElementById("expandable_music_board"));
+}
 var face_location_status = document.getElementById("face_location_status");
 var server_status_board = document.getElementById("server_status_board");
 var face_location_status_board = document.getElementById("face_location_status_board");
 
  function processMessage(message)
  {
+ 	console.log(message)
  	if(message=="failed")
 	{
 		face_location_status.innerHTML="Failed";
@@ -260,9 +217,26 @@ var face_location_status_board = document.getElementById("face_location_status_b
 	}
 	else if(message=="[]"){alert("Internet is slow, so I cannot get the data!")}
 	else {
-		locateFace(message);
+		var len = message.length;
+		var locations = message.substring(0,len-2),
+		emotion = message.substring(len-1, len);
+		console.log([locations, emotion])
+		locateFace(locations);
+		show_emotion_info(parseInt(emotion));
 		face_location_status.innerHTML="Sucessed";
 		face_location_status.setAttribute("class", "title title-2 right white");
 		face_location_status_board.setAttribute("class", "main-board bg-green");
+		//允许播放音乐
+		flag_play = true;
+
 	}
+ }
+
+var emotion_fun = {1:"happy"};
+
+ function show_emotion_info(emotion)
+ {
+ 	emotion_info_board = document.createElement("div");
+ 	face_location_status.parentElement.parentElement.appendChild(emotion_info_board);
+ 	emotion_info_board.outerHTML = "<div class='title-2-board sub-basic' style='background-color:white;'><div class='title title-2'>It Seems you are "+"<strong>"+emotion_fun[emotion]+"</strong></div>";
  }

@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, request
+from flask import Flask, request, Response
 import numpy as np
 import face_recognition
 from PIL import Image
@@ -37,8 +37,20 @@ def upload():
         a = request.get_data()
         if a :
             print(len(a))
-            return get_face_location(640, 480, np.fromstring(a, dtype=np.uint8))
+            emotion=1
+            return get_face_location(640, 480, np.fromstring(a, dtype=np.uint8))+","+str(emotion)
     return 'Wrong'
+
+@app.route("/gen_audio", methods=["GET"])
+def gen_audio():
+    def generate():
+        path = "./static/0.m4a"
+        with open(path, 'rb') as audio:
+            data = audio.read()
+            while data:
+                yield data
+                data = audio.read(1024)
+    return Response(generate(), mimetype="audio/mpeg3")
 
 if __name__ == "__main__":
     app.debug=True

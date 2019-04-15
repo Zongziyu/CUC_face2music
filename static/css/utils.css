@@ -1,5 +1,6 @@
 *{margin:0px;padding:0px;transition:ease 0.5s;}
 body{
+	overflow-x: hidden;
 }
 p{
 	margin: 5px 10px;
@@ -84,7 +85,7 @@ p:hover
 .title-1-board
 {
 	height:50px;
-	width:400px;
+	width:800px;
 	margin-left:calc((100% - 800px)/2);
 }
 
@@ -95,9 +96,6 @@ p:hover
 }
 
 .sub-basic{
-	width:100%;
-/*	padding-left:30px;
-	padding-right:30px;*/
 	line-height: 50px
 }
 .sub-basic:hover
@@ -165,14 +163,14 @@ p:hover
 {
 	margin-left: 0;
     height: 50px;
-    background: #DDD;
+    background-color: #DDD;
     border: 0px;
     cursor:pointer;
     box-shadow: 0px 0px 0px 0px #000;
 }
 .btn:hover
 {
-	background:#AAA;
+	background-color:#AAA;
 }
 .btn-circle
 {
@@ -181,10 +179,6 @@ p:hover
 	border-radius: 40px;
 }
 
-.color-white
-{
-	color:white;
-}
 .line-height50
 {
 	height:50px;
@@ -210,7 +204,7 @@ p:hover
 {
 	height:50px;
 	text-indent:0px;
-	margin-left:20px;
+	margin-left:0px;
 }
 
 
@@ -275,8 +269,13 @@ p:hover
 	height:calc(100% - 50px);
 	width:calc(100% - 250px);
 	overflow-y:scroll;
+	
 }
-
+.center-board
+{
+	width: 100%;
+	left:0px;
+}
 .photo_show
 {
 	background:red;
@@ -413,7 +412,7 @@ p:hover
 input[type=checkbox]{
 	/*visibility: hidden;*/
 }
-.switch-board
+.switch
 {
 	height:40px;
 	width:100%;

@@ -10,13 +10,12 @@
 <body style="min-width: 850px;padding-bottom:20px;" >
 <div class="top">
 
-	<div class="title-1-board sub-top" style="margin-left:0px;">
+	<div class="title-1-board sub-top">
 		<div class="title-icon icon icon-bars icon-2x"></div>
-		<div class="title  title-1 color-white">Dorey</div>
+		<div class="title  title-1 white">Dorey</div>
 	</div>
 
 </div>
-
 
 	<div class="board">
 		<div class="title-1-board">
@@ -26,7 +25,7 @@
 		</div>
 		<div class="main-board">		
             <div class="expandable">
-                <div class="title-2-board expand-top" expand=0  >
+                <div class="title-2-board expand-top" id="video_" expand=0  >
 				    <div class="title-icon icon icon-cogs"></div>
 				    <div class="title title-2">camera</div>
                 </div>
@@ -38,15 +37,13 @@
                 </div>
             </div>
             <div class="line"></div>
-			<div class="title-2-board">
-				<div class="switch-board switch">
-  					<input type="checkbox" id="cam-ctrl" />
-  					<label>open</label>
-				</div>
+			<div class="switch">
+				<input type="checkbox" id="cam-ctrl" />
+				<label>open</label>
 			</div>
 		
 			<div class="title-2-board">
-				<button class="btn btn-circle center40" onclick="getPic()"><div class="icon icon-camera"></div></button>
+				<button class="btn btn-circle center40 icon icon-camera" onclick="getPic()"></button>
 			</div>
 		</div>
 		<!-- Tips Expandable -->
@@ -91,8 +88,9 @@
     	        <div id="face_location_status" class="title title-2 right blue">Stopped</div>
 			</div>
 		</div>
+
 		<div class="next">
-			<div class="next-arrow" onclick="main_show(4)"></div>
+			<div class="next-arrow" onclick="play_audio()"></div>
 			<div class="next-title">Go To Generation Music</div>		
 		</div>
 	</div>
@@ -147,7 +145,7 @@
 		</div>
 		<div class="main-board bg-pink">
 			<div class="expandable">
-				<div class="title-2-board expand-top" expand=0 onclick="expand(this)">
+				<div id="expandable_music_board" class="title-2-board expand-top" expand=0 onclick="expand(this)">
 					<div class="title-icon icon icon-music"></div>
 					<div class="title title-2">Music</div>
     	        	<div class="title title-2 right green">Generated</div>
@@ -208,7 +206,6 @@
 			</div>
 		</div>
 	</div>
-
 	<!--DEMO Staring-->
 
 	<!-- LEFT MENU  Starting-->
@@ -217,10 +214,10 @@
 			<div id="left_list_box">
 			</div>
 	</div>
-
 	<!-- LEFT MENU Ending-->
 </body>
 <script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/basic.js"></script>
 <script type="text/javascript" src="/static/js/utils.js"></script>
 <script type="text/javascript" src="/static/js/music.js"></script>
 </html>
