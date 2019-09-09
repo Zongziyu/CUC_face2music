@@ -1,0 +1,2 @@
+model_checkpoint_path: "emotionDetection_1"
+all_model_checkpoint_paths: "emotionDetection_1"
