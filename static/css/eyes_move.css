@@ -16,6 +16,7 @@
 	top:0px;
 	left:0px;
 	border-radius:30px;
+	transition:ease .5s;
 }
 .eye_2{
 	height:12px;
@@ -25,6 +26,7 @@
 	top:0px;
 	left:0px;
 	border-radius:12px;
+	transition:ease .5s;
 }
 #right_eye
 {

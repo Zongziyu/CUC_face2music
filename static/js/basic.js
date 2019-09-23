@@ -55,3 +55,16 @@ Expandable
 *******End**********
  */
 
+ /** status change***/
+   function change_status(target, status){
+        let target_ = $("#"+target+"_status");
+        if(status == 0){
+            target_.css("background-color","#ffaab1")
+        }
+        else{
+            target_.css("background-color","#89cac4");
+        }
+
+   }
+ /*****/
+

@@ -6,17 +6,20 @@
 	
 	<link rel="stylesheet" type="text/css" href="/static/css/utils.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/music.css">
+
 </head>
-<body style="min-width: 850px;padding-bottom:20px;" >
+<div id="body_div" style="position:fixed;top:0px;left:0px;height:0px;width:0px;transition:ease .5s;overflow:hidden;">
+
+<div style="min-width: 850px;padding-bottom:20px;" >
 <div class="top">
 
 	<div class="title-1-board sub-top">
-		<div class="title-icon icon icon-bars icon-2x"></div>
+		<div class="title-icon icon icon-logo icon-2x"></div>
 		<div class="title  title-1 white">Dorey</div>
 	</div>
 
 </div>
-
+	<!-- Camera -->
 	<div class="board">
 		<div class="title-1-board">
 			<div class="title-icon line-height50 icon icon-camera icon-2x">
@@ -68,8 +71,10 @@
     	       	<div class="title title-2 right red icon-click" style="font-size:30px;"></div>
     	   	</div>
 		</div>
+
+		<div class="bottom-svg svg-camera"></div>
 	</div>
-	
+	<!-- Face Location -->
 	<div class="board" style="display: none;">
 		<div class="title-1-board">
 			<div class="title-icon line-height50 icon icon-smile icon-2x">
@@ -93,8 +98,11 @@
 			<div class="next-arrow" onclick="play_audio()"></div>
 			<div class="next-title">Go To Generation Music</div>		
 		</div>
-	</div>
 
+		<div class="bottom-svg svg-emotion"></div>
+
+	</div>
+	<!-- Results -->
 	<div class="board" style="display: none;">
 		<div class="title-1-board">
 			<div class="title-icon line-height50 icon icon-stack icon-2x">
@@ -104,58 +112,83 @@
 		<div class="main-board">
 			<div class="title-2-board sub-basic">
 				<div class="title-icon icon icon-cogs"></div>
-				<div class="title title-2">camera</div>
-    	        <div class="title title-2 right green">opened</div>
+				<div class="title title-2">Camera Status</div>
+    	        <div class="status right" id="camera_status"></div>
 			</div>
+			<div class="line"></div>
+    	    <div class="title-2-board sub-basic">
+    	        <div class="title-icon icon icon-smile"></div>
+        	    <div class="title title-2">Face Recognition</div>
+				<div class="status right" id="face_status"></div>
+        	</div>
     	    <div class="line"></div>
     	    <div class="title-2-board sub-basic">
     	        <div class="title-icon icon icon-smile"></div>
-        	    <div class="title title-2">emotion</div>
+        	    <div class="title title-2">Emotion Detection</div>
+				<div class="status right" id="emotion_status"></div>
         	</div>
 		</div>
+
+		<div class="bottom-svg svg-results"></div>
+
 	</div>
-	
+	<!-- Figures -->
 	<div class="board" style="display: none;">
 		<div class="title-1-board">
 			<div class="title-icon line-height50 icon icon-line-chart icon-2x">
 			</div>
 			<div class="title  title-1">Figures</div>
 		</div>
-		<div class="main-board">
-			<div class="title-2-board sub-basic">
-				<div class="title-icon icon icon-cogs"></div>
-				<div class="title title-2">camera</div>
-    	        <div class="title title-2 right green">opened</div>
+		<div class="main-board bg-purple">
+			<div class="expandable">
+				<div class="title-2-board expand-top" expand=0 onclick="expand(this); setTimeout(function(){time_line_show();}, 500)">
+					<div class="title-icon icon icon-line"></div>
+					<div class="title title-2">Time Line</div>
+    	        	<div class="title title-2 right white"></div>
+				</div>
+				<div class="expand-board" id="figure-timeline" param="250">
+
+				</div>
 			</div>
     	    <div class="line"></div>
-    	    <div class="title-2-board sub-basic">
-    	        <div class="title-icon icon icon-smile"></div>
-        	    <div class="title title-2">emotion</div>
-        	</div>
+
+			<div class="expandable">
+				<div class="title-2-board expand-top" expand=0 onclick="expand(this); setTimeout(function(){rate_show();}, 500)">
+					<div class="title-icon icon icon-pie"></div>
+					<div class="title title-2">Rate</div>
+    	        	<div class="title title-2 right white"></div>
+				</div>
+				<div class="expand-board" id="figure-rate" param="200">
+
+				</div>
+			</div>
 		</div>
+
+		<div class="bottom-svg svg-figures"></div>
+
 	</div>
 	
 	<!--DEMO Staring-->
-
+	<!-- Music -->
 	<div class="board" style="display: none;">
 		<div class="title-1-board">
 			<div class="title-icon line-height50 icon icon-music icon-2x">
 			</div>
 			<div class="title  title-1">Music</div>
 		</div>
-		<div class="main-board bg-pink">
+		<div class="main-board bg-purple">
 			<div class="expandable">
 				<div id="expandable_music_board" class="title-2-board expand-top" expand=0 onclick="expand(this)">
 					<div class="title-icon icon icon-music"></div>
 					<div class="title title-2">Music</div>
     	        	<div class="title title-2 right green">Generated</div>
 				</div>
-				<div class="expand-board" param="130">
+				<div class="expand-board" param="280">
 					<!--Music Board-->
 					<!--<div id="visualizer_wrapper" style="z-index:-1;">
                 		<canvas id='music_visulize' width=800 height=130></canvas>
             		</div>-->
-					<div id="music" style="position: relative;z-index: 2;margin-top:0px;">
+					<div id="music" style="position: relative;z-index: 2;margin-top:0px;height:130px;">
 						<audio id="audio" loop></audio>
 						<!--<canvas id="canvas" height="250" width="550"></canvas>-->
 						<div id="music_control">
@@ -194,6 +227,7 @@
 						</div>
 					<br/>
 				</div>
+					<svg id = 'music_show_svg' width = '780px' height = '200px' style="margin-top:-60px;" version = '1.1' xmlns="http://www.w3.org/2000/svg"></svg>
 			</div>
 					<!---->
 				</div>
@@ -204,7 +238,10 @@
     	        	<div class="title title-2 right red icon-click" style="font-size:30px;"></div>
     	    	</div>
 			</div>
+				<div class="bottom-svg svg-music"></div>
 		</div>
+
+
 	</div>
 	<!--DEMO Staring-->
 
@@ -215,9 +252,18 @@
 			</div>
 	</div>
 	<!-- LEFT MENU Ending-->
+</div>
 </body>
 <script type="text/javascript" src="/static/js/jquery.js"></script>
+<script>
+	$("#body_div").css({"height":"100%", "width":"100%"})
+</script>
+<script src="https://code.highcharts.com.cn/highcharts/highcharts.js"></script>
+<script src="https://code.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+<script src="https://code.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+<script src="/static/js/highcharts-zh_CN.js"></script>
 <script type="text/javascript" src="/static/js/basic.js"></script>
 <script type="text/javascript" src="/static/js/utils.js"></script>
 <script type="text/javascript" src="/static/js/music.js"></script>
+
 </html>
